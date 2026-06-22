@@ -154,8 +154,8 @@ body {
     justify-content: center;
 }
 
-/* 3D Isometric Scene Styling */
-.hero-graphic-container#hero-isometric-graphic {
+/* AI Neural Flow Orb Graphic Styling */
+.hero-graphic-container#hero-neural-orb {
     position: relative;
     width: 100%;
     height: 420px;
@@ -165,111 +165,194 @@ body {
     margin-bottom: 5rem;
 }
 
-.isometric-scene {
+.neural-scene {
     position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ambient Glow Backdrop */
+.neural-glow-backdrop {
+    position: absolute;
     width: 300px;
     height: 300px;
-    transform: rotateX(55deg) rotateZ(-45deg);
-    transform-style: preserve-3d;
-    z-index: 2;
-    animation: floatScene 6s ease-in-out infinite;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(10px);
+    pointer-events: none;
+    z-index: 1;
 }
 
-@keyframes floatScene {
-    0%, 100% {
-        transform: rotateX(55deg) rotateZ(-45deg) translateY(0);
-    }
-    50% {
-        transform: rotateX(55deg) rotateZ(-45deg) translateY(-15px);
-    }
+/* Central Neural Core */
+.neural-core {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    box-shadow: 0 0 35px rgba(124, 58, 237, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    z-index: 5;
+    animation: corePulse 3s ease-in-out infinite;
 }
 
-.isometric-cube {
+.core-inner-glow {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    transform-style: preserve-3d;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px dashed rgba(124, 58, 237, 0.3);
+    animation: rotateClockwise 12s linear infinite;
+}
+
+.core-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: coreFloat 6s ease-in-out infinite;
+}
+
+/* Concentric Orbit Rings */
+.orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(99, 102, 241, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.ring-outer {
+    width: 290px;
+    height: 290px;
+    z-index: 2;
+    animation: rotateClockwise 25s linear infinite;
+}
+
+.ring-middle {
+    width: 210px;
+    height: 210px;
+    z-index: 3;
+    animation: rotateCounterClockwise 18s linear infinite;
+}
+
+.ring-inner {
+    width: 130px;
+    height: 130px;
+    z-index: 4;
+    animation: rotateClockwise 12s linear infinite;
+}
+
+/* Orbit Nodes */
+.orbit-node {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1.5px solid rgba(124, 58, 237, 0.3);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7c3aed;
+    pointer-events: auto;
+    cursor: pointer;
     transition: var(--transition-smooth);
 }
 
-/* Cube Positioning */
-.cube-top {
-    top: 30px;
-    left: 110px;
+.orbit-node:hover {
+    transform: scale(1.15);
+    border-color: #7c3aed;
+    background: #eedfff;
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
 }
 
-.cube-left {
-    top: 110px;
-    left: 30px;
+/* Positioning nodes on their respective rings */
+.node-a {
+    top: -18px;
+    left: calc(50% - 18px);
 }
 
-.cube-right {
-    top: 110px;
-    left: 190px;
+.node-b {
+    bottom: -18px;
+    left: calc(50% - 18px);
 }
 
-.cube-bottom {
-    top: 190px;
-    left: 110px;
+.node-c {
+    top: calc(50% - 18px);
+    right: -18px;
 }
 
-/* Cube Faces */
-.cube-face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #5b21b6; /* Purple border */
+.node-d {
+    left: -18px;
+    top: calc(50% - 18px);
 }
 
-.face-top {
-    background: #eedfff; /* Soft purple-white */
-    transform: rotateX(0deg) translateZ(40px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-}
-
-.face-left {
-    background: #d8b4fe; /* Shaded purple */
-    transform: rotateY(-90deg) translateZ(40px);
-    transform-origin: left;
-    filter: brightness(0.9);
-    border-radius: 8px;
-}
-
-.face-right {
-    background: #c084fc; /* Darker shaded purple */
-    transform: rotateX(-90deg) translateZ(40px);
-    transform-origin: bottom;
-    filter: brightness(0.8);
-    border-radius: 8px;
-}
-
-/* Icon rotation to align with isometric top face */
-.cube-icon {
-    transform: rotateZ(45deg);
-    color: #6d28d9;
+/* Node Icons setup to counter rotate so they stay upright */
+.node-icon {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.cube-icon svg {
-    filter: drop-shadow(0 2px 4px rgba(109, 40, 217, 0.15));
+.ring-outer .node-icon {
+    animation: rotateCounterClockwise 25s linear infinite;
 }
 
-/* Semi-spherical backdrop shadow */
-.scene-shadow {
-    position: absolute;
-    bottom: 20px;
-    width: 320px;
-    height: 160px;
-    background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
-    border-radius: 50%;
-    z-index: 1;
-    pointer-events: none;
+.ring-middle .node-icon {
+    animation: rotateClockwise 18s linear infinite;
 }
+
+.ring-inner .node-icon {
+    animation: rotateCounterClockwise 12s linear infinite;
+}
+
+/* Animations */
+@keyframes corePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 35px rgba(124, 58, 237, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 45px rgba(124, 58, 237, 0.75), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    }
+}
+
+@keyframes coreFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes rotateClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateCounterClockwise {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
 
 /* Social Proof (Brands) */
 .social-proof-wrapper#social-proof {
