@@ -108,6 +108,7 @@ nav a:hover::after {
     border-radius: 16px;
     text-align: center;
     background: #fff;
+    transition: 0.2s ease;
 }
 
 .price-card h4 {
@@ -132,4 +133,10 @@ nav a:hover::after {
     margin: 8px 0;
     font-size: 14px;
     color: #444;
+}
+
+.price-card:hover {
+    transform: translateY(-6px);
+    border-color: #999;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
