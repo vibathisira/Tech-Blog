@@ -1,0 +1,46 @@
+/* Base styling & Custom properties (White Theme) */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Color Palette */
+    --bg-light: #f5f6ff;
+    --bg-white: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.7);
+    --bg-card-border: rgba(99, 102, 241, 0.12);
+    
+    --primary: #6366f1; /* Indigo */
+    --primary-dark: #4f46e5;
+    --primary-glow: rgba(99, 102, 241, 0.15);
+    
+    --purple-accent: #8b5cf6; /* Violet */
+    --purple-glow: rgba(139, 92, 246, 0.15);
+    
+    --text-main: #0f172a; /* Slate 900 */
+    --text-muted: #475569; /* Slate 600 */
+    --text-light: #94a3b8; /* Slate 400 */
+    
+    --font-sans: 'Outfit', sans-serif;
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-light);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(219, 234, 254, 0.5) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(243, 232, 255, 0.6) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(224, 242, 254, 0.4) 0px, transparent 50%);
+    background-attachment: fixed;
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
